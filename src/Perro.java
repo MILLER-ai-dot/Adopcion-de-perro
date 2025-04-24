@@ -1,12 +1,14 @@
+import java.util.List;
+
 public class Perro {
 
     private String Placa;
     private String Nombre;
     private String Raza;
-    private int  Edad;
+    private int  Edad =0;
     private String Tamaño;
-
-    public Perro() {
+    private boolean adoptado=true;
+    public Perro(List<Perro> perro) {
 
     }
 
@@ -58,14 +60,21 @@ public class Perro {
         Tamaño = tamaño;
     }
 
+    public boolean isAdoptado() {
+        return adoptado;
+    }
+
+    public void setAdoptado(boolean adoptado) {
+        this.adoptado = adoptado;
+    }
+
     @Override
     public String toString() {
-        return "Perro{" +
-                "Placa='" + Placa + '\'' +
-                ", Nombre='" + Nombre + '\'' +
-                ", Raza='" + Raza + '\'' +
-                ", Edad='" + Edad + '\'' +
-                ", Tamaño='" + Tamaño + '\'' +
-                '}';
+        return "Perro " +
+                "Placa= "+ Placa  +
+                ", Nombre= " + Nombre  +
+                ", Raza= " + Raza  +
+                ", Edad= " + Edad  +
+                ", Tamaño= " + Tamaño;
     }
 }

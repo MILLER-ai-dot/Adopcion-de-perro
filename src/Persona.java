@@ -6,7 +6,7 @@ public class Persona {
     private String Apellido;
     private int Edad;
     private String Documento;
-    public List<Perro> perro = new ArrayList<>();
+    public List<Perro> perros = new ArrayList<>();
 
     public Persona() {
     }
@@ -16,18 +16,28 @@ public class Persona {
         Apellido = apellido;
         Edad = edad;
         Documento = documento;
-        this.perro = perro;
+        this.perros = perros;
     }
 
     public void adoptarPerro(Perro perro){
-        boolean adoptado = false;
-
-
-
+       if (perros.size()<3){
+           perros.add(perro);
+           perro.setAdoptado(false);
+       }
     }
 
     public String perroMasGrande(){
-        return "a";
+
+        if (perros.get(0).getEdad()>=perros.get(1).getEdad()&&perros.get(0).getEdad()>=perros.get(2).getEdad()){
+            return perros.get(0).getNombre();
+        }
+        else if (perros.get(1).getEdad()>=perros.get(0).getEdad()&&perros.get(1).getEdad()>=perros.get(2).getEdad()){
+            return perros.get(1).getNombre();
+        }
+        else if (perros.get(2).getEdad()>=perros.get(1).getEdad()&&perros.get(2).getEdad()>=perros.get(0).getEdad()){
+            return perros.get(2).getNombre();
+        }else return "0";
+
     }
 
     public String getNombre() {
@@ -54,7 +64,7 @@ public class Persona {
         Edad = edad;
     }
 
-    public String getString() {
+    public String getDocumento() {
         return Documento;
     }
 
@@ -63,21 +73,20 @@ public class Persona {
     }
 
     public List<Perro> getPerro() {
-        return perro;
+        return perros;
     }
 
     public void setPerro(List<Perro> perro) {
-        this.perro = perro;
+        this.perros = perro;
     }
 
     @Override
     public java.lang.String toString() {
-        return "Persona{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Apellido='" + Apellido + '\'' +
-                ", Edad=" + Edad +
-                ", String='" + Documento + '\'' +
-                ", perro=" + perro +
-                '}';
+        return "Persona   " +
+                "Nombre= " + Nombre +
+                ", Apellido= " + Apellido +
+                ", Edad= "  + Edad +
+                ", Documento= " + Documento+
+                ", Perros= "+ perros;
     }
 }
